@@ -1,3 +1,9 @@
+// Problem: Two Sum
+// LeetCode: #1
+// Approach: Brute Force
+// Time Complexity: O(n²)
+// Space Complexity: O(1)
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
 
