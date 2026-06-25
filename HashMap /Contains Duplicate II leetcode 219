@@ -1,0 +1,32 @@
+Problem: 219. Contains Duplicate II
+
+Approach:
+- Use a HashMap to store each element along with its latest index.
+- While traversing the array, check if the current element already exists in the HashMap.
+- If it exists, calculate the distance between the current index and the previously stored index.
+- If the distance is less than or equal to k, return true.
+- Otherwise, update the index of the current element in the HashMap.
+- If no such pair is found, return false.
+
+Time Complexity: O(n)
+Reason: The array is traversed only once, and HashMap operations (containsKey, get, put) take O(1) on average.
+
+Space Complexity: O(n)
+Reason: In the worst case, all elements are unique, so the HashMap stores n elements.
+
+code->
+
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        HashMap <Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            int num=nums[i];
+            if(map.containsKey(num)){
+                if((i-map.get(num))<=k){
+                    return true;
+                }
+            }
+            map.put(nums[i],i);
+    }
+       return false; }
+}
