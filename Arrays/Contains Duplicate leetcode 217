@@ -1,0 +1,30 @@
+Problem: 217. Contains Duplicate
+
+Approach:
+- Use a HashSet to keep track of elements already seen.
+- If the current element already exists in the HashSet, return true.
+- Otherwise, add it to the HashSet.
+- If no duplicates are found after traversing the array, return false.
+
+Time Complexity: O(n)
+Reason: Single traversal of the array with average O(1) HashSet operations.
+
+Space Complexity: O(n)
+Reason: In the worst case, all elements are unique and stored in the HashSet.
+
+code->
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> set=new HashSet<>();
+        for(int i=0;i<nums.length;i++){
+            if(set.contains(nums[i])){
+                return true;
+            }
+            else{
+                set.add(nums[i]);
+            }
+        }
+        return false;
+    }
+}
